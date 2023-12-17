@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ImpactLink</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css'}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css'}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css'}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css'}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css'}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css'}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #3498db;
+        }
+
+        .event-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .event-card {
+            margin: 20px;
+            max-width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .event-card:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .event-details {
+            padding: 20px;
+        }
+
+        .event-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .event-info {
+            margin-bottom: 10px;
+        }
+
+        .event-info span {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .event-description {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .event-participants-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .participants-circle {
+          
+            background-color: #3498db;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .participants-circle img {
+            width: 20px; /* Adjust the image size as needed */
+            height: 20px; /* Adjust the image size as needed */
+            border-radius: 50%;
+        }
+
+        .event-score {
+            font-size: 0.8em;
+            color: #555;
+        }
+        body {
+            background: linear-gradient(to right, #3498db, #87CEEB);
+            padding: 30px;
+            margin: 0;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        form {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 1s forwards, fadeIn 1s forwards;
+            animation-delay: 0.5s;
+            margin-left: 32%;
+            position: relative;
+        }
+
+        h2 {
+            margin-bottom: 5%;
+            font-weight: bold;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards, moveUp 1s forwards;
+        }
+
+
+   
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moveUp {
+            from {
+                transform: translateY(20px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+        <div class="container d-flex align-items-center justify-content-between">
+    
+          <div class="logo">
+            <h1><a href="{% url 'login:index' %}"><span>ImpactLink</span></a></h1>
+          </div>
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="{% url 'login:index' %}">Home</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'profiles:certification_list' %}">Add Certifications</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'evenements:liste_evenements' %}">Event</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'login:login' %}">Login</a></li>
+    
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+    </header><!-- End Header -->
+
+    <div class="event-card-container" style="padding:2%;">
+        
+        
+    
+            {% for evenement in evenements %}   
+                <div class="event-card">
+                    <img src="{{ evenement.image.url }}" alt="event Image">
+                    <div class="event-details">
+                    <div class="event-title">{{ evenement.nom }}</div>
+                    <div class="event-info">
+                        <span>Name:</span> {{ evenement.organisation }}
+                    </div>
+                    <div class="event-info">
+                        <span>Location:</span> {{ evenement.lieu }}
+                    </div>
+                    <div class="event-info">
+                        <span>Date:</span> {{ evenement.date }}
+                    </div>
+                    <div class="event-description">
+                        {{ evenement.description }}
+                    </div>
+                    <div class="event-participants-container">
+                        Participants:
+                        <div class="participants-circle">
+                            {% for participant in evenement.participants.all %}
+                                {% if participant.profile.avatar %}
+                                    <img src="{{ participant.image.url }}" alt="Participant Image">
+                                {% else %}
+                                    <img src="images/photo-participant.profile.avatar" alt="Default Participant Image">
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="background-color:#3498db;">
+                        <a href="{% url 'evenements:join_event' evenement.pk %}" style="text-decoration: none; color: white;">Join Event</a>
+                    </button>
+
+                </div>
+            
+            {% endfor %}
+    </div>
+</body>
+
+</html>

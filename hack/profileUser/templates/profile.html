@@ -1,0 +1,25 @@
+<!-- profiles/templates/profiles/profile_detail.html -->
+
+
+{% block content %}
+  <h1>{{ profile.profileTitle }}</h1>
+  <p>{{ profile.profileDescription }}</p>
+  <p>Phone: {{ profile.phone }}</p>
+  <p>Country: {{ profile.country }}</p>
+  <!-- Add more fields as needed -->
+
+  <!-- Example of displaying avatar image -->
+  {% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}" alt="{{ profile.profileTitle }} Avatar">
+  {% endif %}
+
+  <!-- Displaying skills, certifications, etc. -->
+  <h2>Skills</h2>
+  <ul>
+    {% for skill in profile.skills.all %}
+      <li>{{ skill.name }}</li>
+    {% endfor %}
+  </ul>
+
+  <!-- Add similar blocks for other related fields -->
+{% endblock %}
